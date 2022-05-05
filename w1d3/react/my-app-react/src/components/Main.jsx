@@ -1,7 +1,7 @@
 // import dependencies
 import React, { Component } from 'react'
 // define class
-export class index extends Component {
+export class Main extends Component {
     render() {
         return (
             <div>
@@ -17,4 +17,4 @@ export class index extends Component {
     }
 }
 
-export default index
+export default Main
