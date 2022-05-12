@@ -1,32 +1,41 @@
 import React, {useState} from 'react'
 
-const userForm = (props) => {
+const Form = (props) => {
     const [firstName, setfirstName] = useState("")
-    const[lastName, setlastName ] = useState("")
-    const[email, setEmail ] = useState("")
-    const[password, setpassword ] = useState("")
-    const[confirmPassword, setconfirmPassword ] = useState("")
+        console.log("hello")
+    // const[lastName, setlastName ] = useState("")
+    // const[email, setEmail ] = useState("")
+    // const[password, setpassword ] = useState("")
+    // const[confirmPassword, setconfirmPassword ] = useState("")
 
-    const subitHandler = (eventChange) => {
-        // stops the form from making a psot request 
-        eventChange.preventDefault()
-        console.log("registering:", firstName, lastName)
+    // const submitHandler = (e) => {
+    //      stops the form from making a psot request 
+    //      e.preventDefault()
+    //      console.log("registering:", firstName, lastName)
+    //     console.log(e)
+    //     setfirstName(e.target.value)
+    const firstNameHandler = (e) => {
+        console.log(e)
+        setfirstName(e.target.value)
 
         // reset  the states 
-        setfirstName("")
-        setlastName("")
-        setEmail("")
-        setpassword("")
-        setconfirmPassword("")
+        // setfirstName("")
+        // setlastName("")
+        // setEmail("")
+        // setpassword("")
+        // setconfirmPassword("")
     }
     return (
+        <div>
+            <h1> testing</h1>
         <form action="">
         <div>
             <p> first name:</p>
             <input type="text" name='firstName' 
-            onChange={(e)=> setfirstName(e.target.value)} 
+            onChange={firstNameHandler}
+            // onChange={(e)=> setfirstName(e.target.value)} 
             value= {firstName}/>
-
+{/* 
             <p> last name:</p>
             <input type="text" name='lastName' 
             onChange={(e) => setlastName(e.target.value)}
@@ -47,11 +56,13 @@ const userForm = (props) => {
             <p> confirm password:</p>
             <input type="text" name='confirmPassword' 
             onChange={(e) => setconfirmPassword(e.target.value)}
-            value= {confirmPassword}/>
+            value= {confirmPassword}/> */}
         </div>
         </form>
+        </div>
+
 
     )
 }
 
-export default userForm
+export default Form
