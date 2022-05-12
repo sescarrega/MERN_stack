@@ -3,6 +3,7 @@ import React, {useState} from 'react'
 const Form = (props) => {
     const [firstName, setfirstName] = useState("")
         console.log("hello")
+
     // const[lastName, setlastName ] = useState("")
     // const[email, setEmail ] = useState("")
     // const[password, setpassword ] = useState("")
@@ -14,9 +15,11 @@ const Form = (props) => {
     //      console.log("registering:", firstName, lastName)
     //     console.log(e)
     //     setfirstName(e.target.value)
+
     const firstNameHandler = (e) => {
         console.log(e)
         setfirstName(e.target.value)
+        // console.log(firstName)
 
         // reset  the states 
         // setfirstName("")
@@ -25,16 +28,34 @@ const Form = (props) => {
         // setpassword("")
         // setconfirmPassword("")
     }
+
+    const [submitted, setsubmitted] = useState(false)
+
+    const handleSubmitted =(e) => {
+        e.preventDefault()
+        alert("User has been sucessfully created ")
+        console.log({firstName})
+        setsubmitted(true)
+    }
+
     return (
         <div>
             <h1> testing</h1>
-        <form action="">
+        {   !submitted&& // the ampersands  represnt the if statement
+        <form onSubmit={handleSubmitted}>
         <div>
             <p> first name:</p>
             <input type="text" name='firstName' 
             onChange={firstNameHandler}
             // onChange={(e)=> setfirstName(e.target.value)} 
             value= {firstName}/>
+
+            {firstName.length <3
+            <span> user name must be at lest 3 characters </span>
+
+            }
+
+            <button > submit name!</button>
 {/* 
             <p> last name:</p>
             <input type="text" name='lastName' 
@@ -57,9 +78,14 @@ const Form = (props) => {
             <input type="text" name='confirmPassword' 
             onChange={(e) => setconfirmPassword(e.target.value)}
             value= {confirmPassword}/> */}
+
+            <button > submit name!</button>
         </div>
         </form>
+
+            <p> are u there ?</p>
         </div>
+        }
 
 
     )
